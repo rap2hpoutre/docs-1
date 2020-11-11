@@ -155,7 +155,7 @@ If you don't see the heroku remote, use the following command to add it:
 heroku git:remote --app your-app-name
 ```
 
-## 6. Add a PostgreSQL database to your application
+## 5. Add a PostgreSQL database to your application
 
 Heroku allows your to provision a PostgreSQL database as part of an application.
 
@@ -177,7 +177,7 @@ Created postgresql-parallel-73780 as DATABASE_URL
 
 > **Note:** Heroku will automatically set the `DATABASE_URL` environment variable when the app is running on Heroku. Prisma will use this environment variable because it's declared in the _datasource_ block of the Prisma schema (`prisma/schema.prisma`) with `env("DATABASE_URL")`.
 
-## 7. Set the DATABASE_URL environment variable locally
+## 6. Set the DATABASE_URL environment variable locally
 
 In the previous step you created the database and saw how Heroku defines `DATABASE_URL` for the application when running on Heroku. In this step, you will to set the `DATABASE_URL` environment variable locally so that you can run the database migration from locally using Prisma.
 
@@ -199,7 +199,7 @@ export DATABASE_URL="postgresql://__USER__:__PASSWORD__@__HOST__:__PORT__/__DATA
 
 > **Note:** It's considered best practice to keep secrets out of your codebase. If you open up the `prisma/schema.prisma` file, you should see `env("DATABASE_URL")` in the _datasource_ block. By setting an environment variable you keep secrets out of the codebase.
 
-## 8. Save and run the database migration
+## 7. Save and run the database migration
 
 With the Heroku app and database created, you will create the database schema using the `prisma db push` command. The command lets you push the state of your Prisma schema file to the database without using migrations.
 
@@ -224,7 +224,7 @@ npx prisma db push --preview-feature
   (3 rows)
 ```
 
-## 9. Push to deploy
+## 8. Push to deploy
 
 Deploy the app by pushing the changes to the Heroku app repository:
 
@@ -244,7 +244,7 @@ remote:        https://your-app-name.herokuapp.com/ deployed to Heroku
 
 > **Note:** Heroku will also set the `PORT` environment variable to which your application will be bound.
 
-## 10. Test your deployed application
+## 9. Test your deployed application
 
 You can use the static frontend to interact with the API you deployed via the preview URL.
 
